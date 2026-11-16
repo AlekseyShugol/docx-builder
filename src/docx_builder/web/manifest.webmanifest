@@ -1,0 +1,9 @@
+{
+  "name": "Docx Builder",
+  "short_name": "DocxBuilder",
+  "description": "Редактор документов Word (.docx) формата A4",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#E5E9F0",
+  "theme_color": "#1B365D"
+}

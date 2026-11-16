@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1B365D" />
+  <title>Редактор документов Word (.docx)</title>
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="stylesheet" href="/static/css/app.css" />
+  <link rel="stylesheet" href="/static/css/sheet.css" />
+  <link rel="stylesheet" href="/static/css/code.css" />
+</head>
+<body>
+  <header class="toolbar">
+    <div class="toolbar-group">
+      <button type="button" class="btn" data-add="heading">+ Заголовок</button>
+      <button type="button" class="btn" data-add="paragraph">+ Текст</button>
+      <button type="button" class="btn" data-add="task">+ Задача</button>
+      <button type="button" class="btn" data-add="code">+ Код</button>
+      <button type="button" class="btn" data-add="table">+ Таблица</button>
+      <button type="button" class="btn" data-add="page_break">+ Разрыв</button>
+      <button type="button" class="btn btn-accent" id="btn-paste">Вставить Markdown / HTML</button>
+    </div>
+
+    <div class="toolbar-group toolbar-right">
+      <button type="button" class="btn" id="btn-new">Новый лист</button>
+      <button type="button" class="btn" id="btn-open-json">Открыть</button>
+      <input type="file" id="file-open-json" accept=".json,application/json" hidden />
+      <button type="button" class="btn" id="btn-save-json">Сохранить JSON</button>
+      <button type="button" class="btn btn-primary" id="btn-export-docx">Скачать Word (.docx)</button>
+    </div>
+  </header>
+
+  <div class="subbar">
+    <div class="subbar-options">
+      <label class="checkbox-label">
+        <input type="checkbox" id="cb-solutions" checked />
+        <span>Включать решения в .docx</span>
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" id="cb-even" checked />
+        <span>Чётное число страниц</span>
+      </label>
+    </div>
+    <div class="status-text" id="save-status">Готово</div>
+  </div>
+
+  <main class="workspace">
+    <section class="paper-sheet" aria-label="Лист A4">
+      <input
+        type="text"
+        id="doc-title"
+        class="doc-title-input"
+        placeholder="ЗАГОЛОВОК ДОКУМЕНТА (необязательно)"
+      />
+      <input
+        type="text"
+        id="doc-subtitle"
+        class="doc-subtitle-input"
+        placeholder="Подзаголовок документа (необязательно)"
+      />
+
+      <div id="blocks-container" class="blocks-container"></div>
+
+      <div id="empty-hint" class="empty-hint">
+        Лист пуст. Добавьте блок сверху или вставьте готовый текст в формате Markdown / HTML.
+      </div>
+    </section>
+  </main>
+
+  <dialog id="paste-dialog" class="modal">
+    <form method="dialog" class="modal-box" id="paste-form">
+      <div class="modal-header">
+        <h2>Вставить Markdown или HTML</h2>
+        <button type="button" class="icon-btn" id="btn-close-modal" title="Закрыть">✕</button>
+      </div>
+      <p class="modal-desc">
+        Вставьте обычный текст, Markdown (<code># Заголовок</code>, <code>```java ... ```</code>,
+        <code>| таблица |</code>, <code>---</code>) или HTML (<code>&lt;h1&gt;</code>,
+        <code>&lt;p&gt;</code>, <code>&lt;pre&gt;</code>, <code>&lt;table&gt;</code>).
+      </p>
+      <textarea
+        id="paste-textarea"
+        class="modal-textarea"
+        placeholder="Вставьте текст сюда..."
+      ></textarea>
+      <div class="modal-footer">
+        <button type="button" class="btn" id="btn-cancel-modal">Отмена</button>
+        <button type="submit" class="btn btn-primary">Добавить на лист</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script type="module" src="/static/js/main.js"></script>
+</body>
+</html>

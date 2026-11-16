@@ -1,0 +1,36 @@
+services:
+  app:
+    build: .
+    container_name: docx-builder-app
+    restart: unless-stopped
+    environment:
+      DOCX_BUILDER_HOST: "0.0.0.0"
+      DOCX_BUILDER_PORT: "8000"
+      DOCX_BUILDER_DISABLE_SERVER_DRAFT: "1"
+      DOCX_BUILDER_CORS_ORIGINS: "${DOCX_BUILDER_CORS_ORIGINS:-https://144-31-227-200.sslip.io}"
+    expose:
+      - "8000"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: docx-builder-caddy
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: "${DOMAIN:-144-31-227-200.sslip.io}"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:

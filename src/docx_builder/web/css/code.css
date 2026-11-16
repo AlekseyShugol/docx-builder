@@ -1,0 +1,142 @@
+/* Блоки кода и IO */
+.code-box {
+  background: #f8f9fb;
+  border: 1px solid #c8d2dc;
+  border-left: 4px solid #2b4c7e;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.code-box-header {
+  background: #e6ecf2;
+  padding: 5px 10px;
+  border-bottom: 1px solid #d0d8e2;
+}
+
+.code-title-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-doc);
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
+  color: #1a2b4c;
+}
+
+.code-textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 8px 10px;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #111827;
+  resize: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+  tab-size: 4;
+  white-space: pre;
+}
+
+.io-box {
+  background: #f5f7fa;
+  border: 1px solid #d4dce4;
+  border-radius: 4px;
+  padding: 6px 10px;
+}
+
+/* Блок таблицы */
+.table-box {
+  border: 1px solid #c8d2dc;
+  border-radius: 4px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.table-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #eef2f6;
+  padding: 6px 10px;
+  border-bottom: 1px solid #d0d8e2;
+}
+
+.table-title-input {
+  flex: 1;
+  min-width: 160px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-doc);
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a2b4c;
+}
+
+.table-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.table-ctrl-btn {
+  appearance: none;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: #334155;
+  cursor: pointer;
+}
+
+.table-ctrl-btn:hover {
+  background: #e2e8f0;
+  border-color: #64748b;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-doc);
+  font-size: 16px;
+}
+
+.doc-table th,
+.doc-table td {
+  border: 1px solid #cbd5e1;
+  padding: 0;
+}
+
+.doc-table th {
+  background: #e6ecf2;
+}
+
+.doc-table input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 6px 8px;
+  font-family: var(--font-doc);
+  font-size: 16px;
+  color: #000000;
+}
+
+.doc-table th input {
+  font-weight: 700;
+  text-align: center;
+  color: #1a2b4c;
+}
