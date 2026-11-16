@@ -177,3 +177,35 @@
     padding: 28px 20px;
   }
 }
+
+[data-theme="dark"] .paper-sheet {
+  border-color: #334155;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .doc-title-input,
+[data-theme="dark"] .doc-input,
+[data-theme="dark"] .doc-textarea {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .doc-subtitle-input {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .sheet-block:hover,
+[data-theme="dark"] .sheet-block:focus-within {
+  border-color: #475569;
+  background: #243247;
+}
+
+[data-theme="dark"] .block-badge {
+  background: #334155;
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .page-break-line {
+  background: #1e3a5f;
+  border-color: #3b82f6;
+  color: #93c5fd;
+}

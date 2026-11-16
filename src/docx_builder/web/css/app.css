@@ -17,6 +17,22 @@
   --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
 }
 
+[data-theme="dark"] {
+  --bg-canvas: #0f172a;
+  --bg-surface: #1e293b;
+  --bg-toolbar: #162032;
+  --bg-subbar: #131c2e;
+  --border-light: #334155;
+  --border-hover: #60a5fa;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --accent-bg: #13313a;
+  --accent-border: #22d3ee;
+  --accent-text: #67e8f9;
+  --text-ui: #e2e8f0;
+  --text-muted: #94a3b8;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -235,6 +251,29 @@ body {
 .icon-btn.danger:hover {
   background: #fdecea;
   color: #b71c1c;
+}
+
+[data-theme="dark"] .btn {
+  border-color: #334155;
+}
+
+[data-theme="dark"] .btn:hover {
+  background: #273549;
+}
+
+[data-theme="dark"] .modal {
+  background: var(--bg-surface);
+  color: var(--text-ui);
+}
+
+[data-theme="dark"] .modal-textarea {
+  background: #0f172a;
+  color: var(--text-ui);
+  border-color: #334155;
+}
+
+[data-theme="dark"] .modal-desc code {
+  background: #0f172a;
 }
 
 .toast {

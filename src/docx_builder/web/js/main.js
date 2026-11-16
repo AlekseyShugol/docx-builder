@@ -19,6 +19,23 @@ const pasteDialog = document.getElementById("paste-dialog");
 const pasteForm = document.getElementById("paste-form");
 const pasteTextarea = document.getElementById("paste-textarea");
 const fileOpenInput = document.getElementById("file-open-json");
+const btnTheme = document.getElementById("btn-theme");
+
+const THEME_KEY = "docx_builder_theme";
+
+function applyTheme(theme) {
+  const isDark = theme === "dark";
+  document.documentElement.dataset.theme = isDark ? "dark" : "light";
+  btnTheme.textContent = isDark ? "☀️" : "🌙";
+  localStorage.setItem(THEME_KEY, isDark ? "dark" : "light");
+}
+
+btnTheme.addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  applyTheme(next);
+});
+
+applyTheme(localStorage.getItem(THEME_KEY) || "light");
 
 let toastTimer = null;
 
